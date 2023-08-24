@@ -1,0 +1,93 @@
+//! This file is using BEM as a methodology to create hierarchy and organization of the styles
+@use "reset";
+@use "scroll-style";
+
+:root {
+    --background-primary: #39393b;
+    --background-secondary: #171717;
+}
+
+body {
+    background-color: #ffffff;
+}
+.container {
+    background-color: var(--background-primary);
+    background: #39393b;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow:
+        20px 20px 60px #bdbdc2,
+        -20px -20px 60px #c0c0c4;
+    &__glass {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        padding: 1.2rem 2rem;
+        width: 100%;
+    }
+    &__screen {
+        background-color: #818286;
+        border-radius: 0.2rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    &__value {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+.btn-block {
+    margin-top: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    &__btn {
+        align-items: center;
+        border-radius: 0.3rem;
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: 700;
+        height: 3rem;
+        justify-content: center;
+        cursor: pointer;
+        &::selection {
+            background-color: rgba(255, 255, 255, 0);
+        }
+    }
+    & .btn--orange {
+        background-color: #f7941d;
+        transition: all 0.1s ease-in-out;
+        &:active {
+            background-color: #ad6712;
+            border: 4px solid #f7941d;
+        }
+    }
+    & .btn--black {
+        background-color: #171717;
+        transition: all 0.1s ease-in-out;
+        &:active {
+            background-color: #080808;
+            border: 4px solid #171717;
+        }
+    }
+    & .btn--blue {
+        background-color: #4f5672;
+        transition: all 0.1s ease-in-out;
+        &:active {
+            background-color: #2a2f41;
+            border: 4px solid #4f5672;
+        }
+    }
+    & .btn--grey {
+        background-color: #6d6e72;
+        transition: all 0.1s ease-in-out;
+        &:active {
+            background-color: #35363a;
+            border: 4px solid #6d6e72;
+        }
+    }
+}
