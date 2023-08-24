@@ -230,12 +230,12 @@ body {
 .btn-block__btn {
   align-items: center;
   border-radius: 0.3rem;
+  cursor: pointer;
   display: flex;
   font-size: 1.5rem;
   font-weight: 700;
   height: 3rem;
   justify-content: center;
-  cursor: pointer;
 }
 .btn-block__btn::selection {
   background-color: rgba(255, 255, 255, 0);
