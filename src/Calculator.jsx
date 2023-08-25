@@ -1,73 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './css/style.css'
 export const Calculator = () => {
+
+    const [digits, setDigits] = useState('');
+
+    const buttons = [
+        { digit: 'ON', className: 'btn--orange' },
+        { digit: 'MC', className: 'btn--black' },
+        { digit: 'M+', className: 'btn--black' },
+        { digit: '%', className: 'btn--blue' },
+        { digit: 7, className: 'btn--grey' },
+        { digit: 8, className: 'btn--grey' },
+        { digit: 9, className: 'btn--grey' },
+        { digit: '÷', className: 'btn--blue' },
+        { digit: 4, className: 'btn--grey' },
+        { digit: 5, className: 'btn--grey' },
+        { digit: 6, className: 'btn--grey' },
+        { digit: 'X', className: 'btn--blue' },
+        { digit: 1, className: 'btn--grey' },
+        { digit: 2, className: 'btn--grey' },
+        { digit: 3, className: 'btn--grey' },
+        { digit: '-', className: 'btn--blue' },
+        { digit: 0, className: 'btn--grey' },
+        { digit: '.', className: 'btn--grey' },
+        { digit: '=', className: 'btn--orange' },
+        { digit: '+', className: 'btn--blue' },
+    ];
+
+    const handleButtonClick = ({ digit }) => {
+
+        if (typeof digit === 'number') {
+            setDigits((prevInput) => prevInput + digit);
+        }
+        if (digit === '+') {
+            setDigits('')
+            setDigits((prevInput) => prevInput + digit);
+        }
+        if (digit === '-') {
+            setDigits('')
+            setDigits((prevInput) => prevInput + digit);
+        }
+        if (digit === '/') {
+            setDigits('')
+            setDigits((prevInput) => prevInput + digit);
+        }
+        if (digit === '%') {
+            setDigits('')
+            setDigits((prevInput) => prevInput + digit);
+        }
+    };
+
+
     return (
         <div className='container'>
             <div className='container__glass'>
                 <div className='container__screen'>
-                    <p className='container__value'>200</p>
+                    <p className='container__value'>
+                        {digits}
+                    </p>
                 </div>
             </div>
             <div className='btn-block'>
-                <div className='btn-block__btn btn--orange'>
-                    ON
-                </div>
-                <div className='btn-block__btn btn--black'>
-                    MC
-                </div>
-                <div className='btn-block__btn btn--black'>
-                    M+
-                </div>
-                <div className='btn-block__btn btn--blue'>
-                    %
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    7
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    8
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    9
-                </div>
-                <div className='btn-block__btn btn--blue'>
-                    ÷
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    4
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    5
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    6
-                </div>
-                <div className='btn-block__btn btn--blue'>                    X
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    1
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    2
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    3
-                </div>
-                <div className='btn-block__btn btn--blue'>
-                    -
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    0
-                </div>
-                <div className='btn-block__btn btn--grey'>
-                    .
-                </div>
-                <div className='btn-block__btn btn--orange'>
-                    =
-                </div>
-                <div className='btn-block__btn btn--blue'>
-                    +
-                </div>
+                {buttons.map((button, index) => (
+                    <button
+                        key={index}
+                        className={`btn-block__btn ${button.className}`}
+                        onClick={() => handleButtonClick(button)}
+                    >
+                        {button.digit}
+                    </button>
+                ))}
             </div>
         </div>
     )

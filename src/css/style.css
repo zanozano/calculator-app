@@ -184,48 +184,56 @@ body {
   cursor: pointer;
 }
 
-:root {
-  --background-primary: #39393b;
-  --background-secondary: #171717;
-}
-
-body {
-  background-color: #ffffff;
+body #root {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
-  background-color: var(--background-primary);
-  background: #39393b;
+  background: rgb(73, 73, 75);
+  background: linear-gradient(190deg, rgb(73, 73, 75) 0%, rgb(27, 27, 28) 100%);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
+  width: 90%;
   box-shadow: 20px 20px 60px #bdbdc2, -20px -20px 60px #c0c0c4;
 }
 .container__glass {
   background-color: #ffffff;
   border-radius: 0.5rem;
-  padding: 1.2rem 2rem;
+  padding: 0.8rem 1.4rem;
   width: 100%;
+  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
 }
 .container__screen {
   background-color: #818286;
   border-radius: 0.2rem;
-  padding: 1rem;
   display: flex;
   flex-direction: row-reverse;
+  padding: 1rem;
 }
 .container__value {
   font-size: 1.5rem;
   font-weight: 600;
+  height: 1.4rem;
 }
 
+@media screen and (min-width: 700px) {
+  .container {
+    width: 40%;
+  }
+}
 .btn-block {
-  margin-top: 1rem;
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 12px;
   grid-row-gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  margin-top: 1rem;
+  width: 100%;
 }
 .btn-block__btn {
   align-items: center;
@@ -241,36 +249,51 @@ body {
   background-color: rgba(255, 255, 255, 0);
 }
 .btn-block .btn--orange {
-  background-color: #f7941d;
+  background: #f7941d;
+  border-radius: 4px;
   transition: all 0.1s ease-in-out;
+  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
 }
 .btn-block .btn--orange:active {
-  background-color: #ad6712;
-  border: 4px solid #f7941d;
+  background: rgb(173, 103, 18);
+  background: radial-gradient(circle, rgb(173, 103, 18) 0%, rgb(230, 141, 34) 100%);
+  border: 0.2rem solid rgba(247, 148, 29, 0.5);
 }
 .btn-block .btn--black {
   background-color: #171717;
   transition: all 0.1s ease-in-out;
+  border-radius: 4px;
+  transition: all 0.1s ease-in-out;
+  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
 }
 .btn-block .btn--black:active {
-  background-color: #080808;
-  border: 4px solid #171717;
+  background: rgb(43, 43, 43);
+  background: radial-gradient(circle, rgb(43, 43, 43) 0%, rgb(8, 8, 8) 100%);
+  border: 0.2rem solid rgba(23, 23, 23, 0.5);
 }
 .btn-block .btn--blue {
   background-color: #4f5672;
   transition: all 0.1s ease-in-out;
+  border-radius: 4px;
+  transition: all 0.1s ease-in-out;
+  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
 }
 .btn-block .btn--blue:active {
-  background-color: #2a2f41;
-  border: 4px solid #4f5672;
+  background: rgb(42, 47, 65);
+  background: radial-gradient(circle, rgb(42, 47, 65) 0%, rgb(32, 36, 50) 100%);
+  border: 0.2rem solid rgba(79, 86, 114, 0.5);
 }
 .btn-block .btn--grey {
   background-color: #6d6e72;
   transition: all 0.1s ease-in-out;
+  border-radius: 4px;
+  transition: all 0.1s ease-in-out;
+  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
 }
 .btn-block .btn--grey:active {
-  background-color: #35363a;
-  border: 4px solid #6d6e72;
+  background: rgb(83, 84, 87);
+  background: radial-gradient(circle, rgb(83, 84, 87) 0%, rgb(58, 59, 61) 100%);
+  border: 0.2rem solid rgba(109, 110, 114, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */
