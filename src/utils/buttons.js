@@ -5,7 +5,7 @@ export const buttons = [
     { digit: 7, color: 'secondary', value: 'seven' },
     { digit: 8, color: 'secondary', value: 'eight' },
     { digit: 9, color: 'secondary', value: 'nine' },
-    { digit: '*', color: 'primary', value: 'multiply' },
+    { digit: 'x', color: 'primary', value: 'multiply' },
     { digit: 4, color: 'secondary', value: 'four' },
     { digit: 5, color: 'secondary', value: 'five' },
     { digit: 6, color: 'secondary', value: 'six' },

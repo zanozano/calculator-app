@@ -14,18 +14,58 @@ const CustomButton = styled(Button)({
 
 export const Calculator = () => {
 
-    const { value, number, reset } = useMathOperations()
+    const {
+        dot,
+        number,
+        add,
+        subtract,
+        multiply,
+        divide,
+        modulo,
+        calculate,
+        value,
+        reset,
+        showResult,
+    } = useMathOperations()
 
     const { theme } = useMode();
 
     const handleCalculate = ({ digit, value }) => {
         if (!isNaN(digit)) {
-            number(digit)
+            number(digit);
+            return;
         }
-        if (value == 'reset') {
-            reset()
+
+        switch (value) {
+            case 'reset':
+                reset();
+                break;
+            case 'add':
+                add(digit);
+                break;
+            case 'dot':
+                dot(digit);
+                break;
+            case 'subtract':
+                subtract(digit);
+                break;
+            case 'multiply':
+                multiply(digit);
+                break;
+            case 'divide':
+                divide(digit);
+                break;
+            case 'modulo':
+                modulo(digit);
+                break;
+            case 'result':
+                showResult();
+                break;
+            default:
+                console.error('Unrecognized operation:', value);
         }
-    }
+    };
+
 
     useEffect(() => {
         document.body.style.backgroundColor = theme.palette.background.main;
@@ -33,7 +73,6 @@ export const Calculator = () => {
 
     return (
         <ThemeProvider theme={theme}>
-
             <Box
                 sx={{
                     position: 'absolute',
@@ -45,18 +84,25 @@ export const Calculator = () => {
             </Box>
 
             <Box sx={{
-                alignItems: 'center',
+                alignItems: 'flex-end',
                 display: 'flex',
-                height: '100vh',
+                minHeight: '100vh',
                 justifyContent: 'center',
-                padding: '0 0.4rem',
+                padding: '0.8rem',
             }}>
 
                 <Box sx={{ backgroundColor: theme.palette.surface.main }} className='main-container'>
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end', flexDirection: 'row-reverse', height: 86 }}>
-                        <Typography sx={{ fontSize: 64 }}>
-                            {value}
-                        </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', flexDirection: 'column', height: 140 }}>
+                        <Box sx={{ display: 'flex', height: 36 }}>
+                            <Typography variant='h3'>
+                                {calculate}
+                            </Typography>
+                        </Box>
+                        <Box sx={{ display: 'flex', height: 86 }}>
+                            <Typography variant='h2'>
+                                {value}
+                            </Typography>
+                        </Box>
                     </Box>
 
                     <Box className='btn-block'>

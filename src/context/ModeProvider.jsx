@@ -16,7 +16,15 @@ export const ModeProvider = ({ children }) => {
 
     const theme = createTheme({
         typography: {
-            fontFamily: 'Poppins, sans-serif',
+            fontFamily: 'Roboto, sans-serif',
+            h2: {
+                fontSize: 64,
+                fontWeight: 300,
+            },
+            h3: {
+                fontSize: 26,
+                fontWeight: 200,
+            },
         },
         palette: {
             mode: isLightMode ? "light" : "dark",
