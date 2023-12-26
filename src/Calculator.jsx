@@ -66,6 +66,13 @@ export const Calculator = () => {
         }
     };
 
+    const formatValue = (value) => {
+        if (value.length > 8) {
+            const exponent = value.length - 1;
+            return `${value[0]}.${value.substring(1, 2)}e${exponent}`;
+        }
+        return value;
+    };
 
     useEffect(() => {
         document.body.style.backgroundColor = theme.palette.background.main;
@@ -100,7 +107,7 @@ export const Calculator = () => {
                         </Box>
                         <Box sx={{ display: 'flex', height: 86 }}>
                             <Typography variant='h2'>
-                                {value}
+                                {formatValue(value)}
                             </Typography>
                         </Box>
                     </Box>

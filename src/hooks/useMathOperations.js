@@ -5,10 +5,12 @@ export function useMathOperations() {
     const [value, setValue] = useState('');
 
     const number = (newValue) => {
-        if (value === '0' && value.length === 1) {
-            setValue(String(newValue));
-        } else {
-            setValue((prevValue) => prevValue + String(newValue));
+        if (value.length < 8) {
+            if (value === '0' && value.length === 1) {
+                setValue(String(newValue));
+            } else {
+                setValue((prevValue) => prevValue + String(newValue));
+            }
         }
     };
 
@@ -21,7 +23,7 @@ export function useMathOperations() {
     const add = (digit) => {
         if (value.length > 0) {
             setCalculate((oldValue) => {
-                const lastValue = oldValue[oldValue.length - 1];
+                const lastValue = value[value.length - 1];
                 if (digit === '+' && ['+'].includes(lastValue)) {
                     return oldValue;
                 } else {
@@ -35,7 +37,7 @@ export function useMathOperations() {
     const subtract = (digit) => {
         if (value.length > 0) {
             setCalculate((oldValue) => {
-                const lastValue = oldValue[oldValue.length - 1];
+                const lastValue = value[value.length - 1];
                 if (digit === '-' && ['-'].includes(lastValue)) {
                     return oldValue;
                 } else {
@@ -49,8 +51,8 @@ export function useMathOperations() {
     const multiply = (digit) => {
         if (value.length > 0) {
             setCalculate((oldValue) => {
-                const lastValue = oldValue[oldValue.length - 1];
-                if (digit === 'x' && ['x'].includes(lastValue)) {
+                const lastValue = value[value.length - 1];
+                if (digit === 'x' && ['*'].includes(lastValue)) {
                     return oldValue;
                 } else {
                     return [...oldValue, value, '*'];
@@ -64,7 +66,7 @@ export function useMathOperations() {
     const divide = (digit) => {
         if (value.length > 0) {
             setCalculate((oldValue) => {
-                const lastValue = oldValue[oldValue.length - 1];
+                const lastValue = value[value.length - 1];
                 if (digit === '÷' && ['/'].includes(lastValue)) {
                     return oldValue;
                 } else {
@@ -78,7 +80,7 @@ export function useMathOperations() {
     const modulo = (digit) => {
         if (value.length > 0) {
             setCalculate((oldValue) => {
-                const lastValue = oldValue[oldValue.length - 1];
+                const lastValue = value[value.length - 1];
                 if (digit === '%' && ['%'].includes(lastValue)) {
                     return oldValue;
                 } else {
@@ -90,6 +92,7 @@ export function useMathOperations() {
     };
 
     const showResult = () => {
+
         const newArray = [...calculate, value];
         let result = 0;
         let currentOperation = '+';
@@ -105,10 +108,10 @@ export function useMathOperations() {
                     case '-':
                         result -= Number(value);
                         break;
-                    case 'x':
+                    case '*':
                         result *= Number(value);
                         break;
-                    case '÷':
+                    case '/':
                         result /= Number(value);
                         break;
                     case '%':

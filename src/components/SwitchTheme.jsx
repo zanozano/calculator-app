@@ -22,11 +22,16 @@ export const SwitchTheme = () => {
                 padding: '0.8rem 1.4rem',
 
             }}>
-            theme
             {isLightMode ? (
-                <LightModeIcon />
+                <>
+                    Dark
+                    <DarkModeIcon />
+                </>
             ) : (
-                <DarkModeIcon />
+                <>
+                    Light
+                    <LightModeIcon />
+                </>
             )}
 
         </Button>
