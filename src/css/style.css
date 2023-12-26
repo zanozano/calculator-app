@@ -184,116 +184,122 @@ body {
   cursor: pointer;
 }
 
-body #root {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  width: 100vw;
-  font-family: "Roboto", sans-serif;
+:root {
+  --surface-background: rgba(10, 10, 10, 1);
+  --surface-grey: rgba(75, 75, 75, 1);
+  --surface-white: rgba(255, 255, 255, 1);
+  --surface-black: rgba(28, 28, 28, 1);
+  --surface-screen: rgba(129, 130, 134, 1);
 }
 
-.container {
-  background: rgb(73, 73, 75);
-  background: linear-gradient(190deg, rgb(73, 73, 75) 0%, rgb(27, 27, 28) 100%);
-  border-radius: 8px;
-  padding: 2rem 1.5rem;
-  width: 90%;
-  box-shadow: 20px 20px 60px #bdbdc2, -20px -20px 60px #c0c0c4;
-}
-.container__glass {
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1.4rem;
+.main-container {
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  padding: 5rem 1.4rem;
   width: 100%;
-  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
+  box-shadow: 20px 20px 60px rgba(189, 189, 194, 0.3), -20px -20px 60px rgba(189, 189, 194, 0.2);
 }
-.container__screen {
-  background-color: #818286;
-  border-radius: 0.2rem;
+.main-container__screen {
+  align-items: flex-end;
   display: flex;
   flex-direction: row-reverse;
-  padding: 1rem;
-}
-.container__value {
-  font-size: 1.5rem;
-  font-weight: 600;
-  height: 1.4rem;
 }
 
-@media screen and (min-width: 700px) {
-  .container {
-    width: 40%;
-  }
-}
 .btn-block {
   display: grid;
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  margin-top: 1rem;
-  width: 100%;
+  gap: 0.5rem;
+  grid-template-areas: "item-0 item-0 item-1 item-2" "item-3 item-4 item-5 item-6" "item-7 item-8 item-9 item-10" "item-11 item-12 item-13 item-14" "item-15 item-15 item-16 item-17";
 }
-.btn-block__btn {
-  align-items: center;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  display: flex;
-  font-size: 1.5rem;
-  font-weight: 700;
-  height: 3rem;
-  justify-content: center;
+
+.reset {
+  grid-area: item-0;
 }
-.btn-block__btn::selection {
-  background-color: rgba(255, 255, 255, 0);
+
+.modulo {
+  grid-area: item-1;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--orange {
-  background: #f7941d;
-  border-radius: 4px;
-  transition: all 0.1s ease-in-out;
-  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
+
+.divide {
+  grid-area: item-2;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--orange:active {
-  background: rgb(173, 103, 18);
-  background: radial-gradient(circle, rgb(173, 103, 18) 0%, rgb(230, 141, 34) 100%);
-  border: 0.2rem solid rgba(247, 148, 29, 0.5);
+
+.seven {
+  grid-area: item-3;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--black {
-  background-color: #171717;
-  transition: all 0.1s ease-in-out;
-  border-radius: 4px;
-  transition: all 0.1s ease-in-out;
-  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
+
+.eight {
+  grid-area: item-4;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--black:active {
-  background: rgb(43, 43, 43);
-  background: radial-gradient(circle, rgb(43, 43, 43) 0%, rgb(8, 8, 8) 100%);
-  border: 0.2rem solid rgba(23, 23, 23, 0.5);
+
+.nine {
+  grid-area: item-5;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--blue {
-  background-color: #4f5672;
-  transition: all 0.1s ease-in-out;
-  border-radius: 4px;
-  transition: all 0.1s ease-in-out;
-  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
+
+.multiply {
+  grid-area: item-6;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--blue:active {
-  background: rgb(42, 47, 65);
-  background: radial-gradient(circle, rgb(42, 47, 65) 0%, rgb(32, 36, 50) 100%);
-  border: 0.2rem solid rgba(79, 86, 114, 0.5);
+
+.four {
+  grid-area: item-7;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--grey {
-  background-color: #6d6e72;
-  transition: all 0.1s ease-in-out;
-  border-radius: 4px;
-  transition: all 0.1s ease-in-out;
-  box-shadow: 5px 5px 10px #313133, -5px -5px 10px #29292b;
+
+.five {
+  grid-area: item-8;
+  aspect-ratio: 1/1;
 }
-.btn-block .btn--grey:active {
-  background: rgb(83, 84, 87);
-  background: radial-gradient(circle, rgb(83, 84, 87) 0%, rgb(58, 59, 61) 100%);
-  border: 0.2rem solid rgba(109, 110, 114, 0.5);
+
+.six {
+  grid-area: item-9;
+  aspect-ratio: 1/1;
+}
+
+.subtract {
+  grid-area: item-10;
+  aspect-ratio: 1/1;
+}
+
+.one {
+  grid-area: item-11;
+  aspect-ratio: 1/1;
+}
+
+.two {
+  grid-area: item-12;
+  aspect-ratio: 1/1;
+}
+
+.three {
+  grid-area: item-13;
+  aspect-ratio: 1/1;
+}
+
+.add {
+  grid-area: item-14;
+  aspect-ratio: 1/1;
+}
+
+.zero {
+  grid-area: item-15;
+}
+
+.dot {
+  grid-area: item-16;
+  aspect-ratio: 1/1;
+}
+
+.result {
+  grid-area: item-17;
+  aspect-ratio: 1/1;
 }
 
 /*# sourceMappingURL=style.css.map */

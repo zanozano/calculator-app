@@ -1,76 +1,81 @@
-import React, { useState } from 'react';
 import './css/style.css'
+import { Box, Button, ThemeProvider, Typography, styled } from '@mui/material';
+import { buttons } from './utils/buttons';
+import { useMode } from './context/ModeProvider';
+import { SwitchTheme } from './components/SwitchTheme';
+import { useEffect } from 'react';
+import { useMathOperations } from './hooks/useMathOperations';
+
+const CustomButton = styled(Button)({
+    borderRadius: '10rem',
+    fontSize: '1.6rem',
+    textTransform: 'initial',
+})
+
 export const Calculator = () => {
 
-    const [digits, setDigits] = useState('');
+    const { value, number, reset } = useMathOperations()
 
-    const buttons = [
-        { digit: 'ON', className: 'btn--orange' },
-        { digit: 'MC', className: 'btn--black' },
-        { digit: 'M+', className: 'btn--black' },
-        { digit: '%', className: 'btn--blue' },
-        { digit: 7, className: 'btn--grey' },
-        { digit: 8, className: 'btn--grey' },
-        { digit: 9, className: 'btn--grey' },
-        { digit: '÷', className: 'btn--blue' },
-        { digit: 4, className: 'btn--grey' },
-        { digit: 5, className: 'btn--grey' },
-        { digit: 6, className: 'btn--grey' },
-        { digit: 'X', className: 'btn--blue' },
-        { digit: 1, className: 'btn--grey' },
-        { digit: 2, className: 'btn--grey' },
-        { digit: 3, className: 'btn--grey' },
-        { digit: '-', className: 'btn--blue' },
-        { digit: 0, className: 'btn--grey' },
-        { digit: '.', className: 'btn--grey' },
-        { digit: '=', className: 'btn--orange' },
-        { digit: '+', className: 'btn--blue' },
-    ];
+    const { theme } = useMode();
 
-    const handleButtonClick = ({ digit }) => {
+    const handleCalculate = ({ digit, value }) => {
+        if (!isNaN(digit)) {
+            number(digit)
+        }
+        if (value == 'reset') {
+            reset()
+        }
+    }
 
-        if (typeof digit === 'number') {
-            setDigits((prevInput) => prevInput + digit);
-        }
-        if (digit === '+') {
-            setDigits('')
-            setDigits((prevInput) => prevInput + digit);
-        }
-        if (digit === '-') {
-            setDigits('')
-            setDigits((prevInput) => prevInput + digit);
-        }
-        if (digit === '/') {
-            setDigits('')
-            setDigits((prevInput) => prevInput + digit);
-        }
-        if (digit === '%') {
-            setDigits('')
-            setDigits((prevInput) => prevInput + digit);
-        }
-    };
-
+    useEffect(() => {
+        document.body.style.backgroundColor = theme.palette.background.main;
+    }, [theme]);
 
     return (
-        <div className='container'>
-            <div className='container__glass'>
-                <div className='container__screen'>
-                    <p className='container__value'>
-                        {digits}
-                    </p>
-                </div>
-            </div>
-            <div className='btn-block'>
-                {buttons.map((button, index) => (
-                    <button
-                        key={index}
-                        className={`btn-block__btn ${button.className}`}
-                        onClick={() => handleButtonClick(button)}
-                    >
-                        {button.digit}
-                    </button>
-                ))}
-            </div>
-        </div>
+        <ThemeProvider theme={theme}>
+
+            <Box
+                sx={{
+                    position: 'absolute',
+                    right: 14,
+                    top: 10,
+                    zIndex: 10,
+                }}>
+                <SwitchTheme />
+            </Box>
+
+            <Box sx={{
+                alignItems: 'center',
+                display: 'flex',
+                height: '100vh',
+                justifyContent: 'center',
+                padding: '0 0.4rem',
+            }}>
+
+                <Box sx={{ backgroundColor: theme.palette.surface.main }} className='main-container'>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-end', flexDirection: 'row-reverse', height: 86 }}>
+                        <Typography sx={{ fontSize: 64 }}>
+                            {value}
+                        </Typography>
+                    </Box>
+
+                    <Box className='btn-block'>
+                        {buttons.map((button, index) => (
+                            <CustomButton
+                                disableElevation
+                                className={button.value}
+                                color={button.color}
+                                key={index}
+                                onClick={() => handleCalculate(button)}
+                                variant="contained"
+                            >
+                                {button.digit}
+                            </CustomButton>
+                        ))}
+                    </Box>
+                </Box>
+
+            </Box>
+        </ThemeProvider>
     )
 }
