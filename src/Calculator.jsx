@@ -98,7 +98,12 @@ export const Calculator = () => {
                 padding: '0.8rem',
             }}>
 
-                <Box sx={{ backgroundColor: theme.palette.surface.main }} className='main-container'>
+                <Box
+                    sx={{
+                        backgroundColor: theme.palette.surface.main,
+                        border: `4px solid ${theme.palette.tertiary.main
+                            }`
+                    }} className='main-container'>
                     <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', flexDirection: 'column', height: 140 }}>
                         <Box sx={{ display: 'flex', height: 36 }}>
                             <Typography variant='h3'>
