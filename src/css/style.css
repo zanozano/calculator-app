@@ -1,0 +1,305 @@
+@charset "UTF-8";
+/* Definimos las Custom properties */
+:root {
+  /* Colores */
+  --negro: #393939;
+  /* Tipografía */
+  --tipo-principal: Roboto, Helvetica, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* (Opcional) Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+  }
+}
+/* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before,
+*::after {
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */
+  object-fit: cover;
+  /* (Opcional) */
+  object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* (Opcional) Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* (Opcional) Configuramos el texto que seleccionamos */
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* (Opcional) */
+  appearance: none;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  /* (Opcional) */
+  hyphens: auto;
+  /* (Opcional) */
+  font-smooth: always;
+  /* (Opcional) */
+  -webkit-font-smoothing: antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* For webkit-based browsers (Chrome, Safari, Edge) */
+/* Customize the scrollbar track (the background behind the thumb) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Customize the scrollbar thumb (the draggable handle) */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* On hover, change the color of the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+  cursor: pointer;
+}
+
+:root {
+  --surface-background: rgba(10, 10, 10, 1);
+  --surface-grey: rgba(75, 75, 75, 1);
+  --surface-white: rgba(255, 255, 255, 1);
+  --surface-black: rgba(28, 28, 28, 1);
+  --surface-screen: rgba(129, 130, 134, 1);
+}
+
+.main-container {
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  padding: 2.4rem 1.4rem;
+  width: 100%;
+  box-shadow: 20px 20px 60px rgba(189, 189, 194, 0.3), -20px -20px 60px rgba(189, 189, 194, 0.2);
+}
+.main-container__screen {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.btn-block {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-areas: "item-0 item-0 item-1 item-2" "item-3 item-4 item-5 item-6" "item-7 item-8 item-9 item-10" "item-11 item-12 item-13 item-14" "item-15 item-15 item-16 item-17";
+}
+
+.reset {
+  grid-area: item-0;
+}
+
+.modulo {
+  grid-area: item-1;
+  aspect-ratio: 1/1;
+}
+
+.divide {
+  grid-area: item-2;
+  aspect-ratio: 1/1;
+}
+
+.seven {
+  grid-area: item-3;
+  aspect-ratio: 1/1;
+}
+
+.eight {
+  grid-area: item-4;
+  aspect-ratio: 1/1;
+}
+
+.nine {
+  grid-area: item-5;
+  aspect-ratio: 1/1;
+}
+
+.multiply {
+  grid-area: item-6;
+  aspect-ratio: 1/1;
+}
+
+.four {
+  grid-area: item-7;
+  aspect-ratio: 1/1;
+}
+
+.five {
+  grid-area: item-8;
+  aspect-ratio: 1/1;
+}
+
+.six {
+  grid-area: item-9;
+  aspect-ratio: 1/1;
+}
+
+.subtract {
+  grid-area: item-10;
+  aspect-ratio: 1/1;
+}
+
+.one {
+  grid-area: item-11;
+  aspect-ratio: 1/1;
+}
+
+.two {
+  grid-area: item-12;
+  aspect-ratio: 1/1;
+}
+
+.three {
+  grid-area: item-13;
+  aspect-ratio: 1/1;
+}
+
+.add {
+  grid-area: item-14;
+  aspect-ratio: 1/1;
+}
+
+.zero {
+  grid-area: item-15;
+}
+
+.dot {
+  grid-area: item-16;
+  aspect-ratio: 1/1;
+}
+
+.result {
+  grid-area: item-17;
+  aspect-ratio: 1/1;
+}
+
+/*# sourceMappingURL=style.css.map */
