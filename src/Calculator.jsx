@@ -80,30 +80,31 @@ export const Calculator = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Box
-                sx={{
-                    position: 'absolute',
-                    right: 14,
-                    top: 10,
-                    zIndex: 10,
-                }}>
-                <SwitchTheme />
-            </Box>
 
             <Box sx={{
-                alignItems: 'flex-end',
+                background: (theme) => theme.palette.background.main,
+                alignItems: 'center',
                 display: 'flex',
-                minHeight: '100vh',
+                flexDirection: 'column',
+                gap: 4,
                 justifyContent: 'center',
+                minHeight: '100vh',
                 padding: '0.8rem',
             }}>
-
                 <Box
                     sx={{
+                        overflow: 'visible',
                         backgroundColor: theme.palette.surface.main,
                         border: `4px solid ${theme.palette.tertiary.main
                             }`
                     }} className='main-container'>
+                    <Box
+                        sx={{
+                            alignSelf: 'flex-end',
+                            zIndex: 10,
+                        }}>
+                        <SwitchTheme />
+                    </Box>
                     <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', flexDirection: 'column', height: 140 }}>
                         <Box sx={{ display: 'flex', height: 36 }}>
                             <Typography variant='h3'>

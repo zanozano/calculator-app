@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /* Definimos las Custom properties */
 :root {
   /* Colores */
@@ -14,6 +15,7 @@
     --negro: #ececec;
   }
 }
+
 /* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
 /* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
 @media (prefers-reduced-motion: reduce) {
@@ -22,6 +24,7 @@
     transition: none !important;
   }
 }
+
 /* Reseteamos los margin y paddings de todas las etiquetas */
 *,
 *::before,
@@ -198,10 +201,11 @@ body {
   flex-direction: column;
   gap: 1rem;
   max-width: 400px;
-  padding: 2.4rem 1.4rem;
+  padding: 1.4rem 1.4rem 2.4rem 1.4rem;
   width: 100%;
   box-shadow: 20px 20px 60px rgba(189, 189, 194, 0.3), -20px -20px 60px rgba(189, 189, 194, 0.2);
 }
+
 .main-container__screen {
   align-items: flex-end;
   display: flex;

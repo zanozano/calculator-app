@@ -41,7 +41,9 @@ export const ModeProvider = ({ children }) => {
                 main: isLightMode ? '#000000' : '#ffffff',
             },
             background: {
-                main: isLightMode ? '#ffffff' : '#000000',
+                main: isLightMode ?
+                    'linear-gradient(0deg, rgba(221,221,221,1) 0%, rgba(255,255,255,1) 100%);' :
+                    'linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(40,40,40,1) 100%);',
             },
         },
         components: {
